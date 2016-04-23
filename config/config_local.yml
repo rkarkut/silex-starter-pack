@@ -1,0 +1,9 @@
+debug: true
+
+config:
+    database:
+        dbname: silex
+        user: user
+        password: user
+        host: localhost
+        driver: pdo_mysql
