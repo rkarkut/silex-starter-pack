@@ -17,9 +17,9 @@ environments:
     development:
         adapter: mysql
         host: localhost
-        name:
-        user:
-        pass:
+        name: test_online
+        user: user
+        pass: user
         port: 3306
         charset: utf8
 

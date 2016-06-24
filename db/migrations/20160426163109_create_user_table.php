@@ -2,6 +2,9 @@
 
 use Phinx\Migration\AbstractMigration;
 
+/**
+ * Class CreateUserTable
+ */
 class CreateUserTable extends AbstractMigration
 {
     /**
@@ -39,10 +42,5 @@ class CreateUserTable extends AbstractMigration
             ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
             ->addColumn('updated_at', 'timestamp')
             ->create();
-    }
-
-    public function down()
-    {
-        $this->dropTable('users');
     }
 }

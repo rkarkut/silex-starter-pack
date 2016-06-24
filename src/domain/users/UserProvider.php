@@ -39,7 +39,7 @@ class UserProvider implements UserProviderInterface
      */
     public function loadUserByUsername($username)
     {
-        $stmt = $this->db->executeQuery('SELECT * FROM users WHERE username = ?', [strtolower($username)]);
+        $stmt = $this->db->executeQuery('SELECT * FROM users WHERE email = ?', [strtolower($username)]);
 
         $user = $stmt->fetch();
 
@@ -47,7 +47,7 @@ class UserProvider implements UserProviderInterface
             throw new UsernameNotFoundException(sprintf('Email "%s" does not exist.', $username));
         }
 
-        return new User($user['username'], $user['password'], explode(',', $user['roles']), true, true, true, true);
+        return new User($user['email'], $user['password'], explode(',', $user['roles']), true, true, true, true);
     }
 
     /**

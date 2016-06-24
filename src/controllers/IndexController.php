@@ -3,7 +3,6 @@
 namespace Ex\Controllers;
 
 use Ex\Core\ExApplication;
-use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\User\User;
 
@@ -23,10 +22,10 @@ class IndexController
     }
 
     /**
-     * @param Application $app
+     * @param ExApplication $app
      * @param Request $request
      */
-    public function encodePassword(Application $app, Request $request)
+    public function encodePassword(ExApplication $app, Request $request)
     {
         if (!$app['debug']) {
             $app->abort(404, 'Page not found');

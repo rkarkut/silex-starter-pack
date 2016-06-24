@@ -11,13 +11,15 @@ class UsersSeeder extends AbstractSeed
      *
      * More information on writing seeders is available here:
      * http://docs.phinx.org/en/latest/seeding.html
+     *
+     * password: TestApp777
      */
     public function run()
     {
         $data = [
             [
-                'email' => 'radek@rkarkut.pl',
-                'password' => 'riW1d/+hN8fawJq6V7EGPCfn2it4s8xQDAPEwGJgYjGJ8vXu6j1xZnk65g/6/ZKvOw4Um4LeAayeDU2OX+Pcow==',
+                'email' => 'test@site.com',
+                'password' => 'stHGdg4MhYOm/OVTWjpMJievIvJqafsQQ3WpWlUNDT6WfHupVWjBQaxdppMQkdCmYSXl6QQQXVYLGL/MDZi5Zw==',
                 'roles' => 'ROLE_USER',
                 'is_active' => 1,
                 'last_login_date' => date('Y-m-d H:i:s'),

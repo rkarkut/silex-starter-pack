@@ -26,7 +26,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Local Moto</a>
+            <a class="navbar-brand" href="/">Local Site</a>
         </div>
 
         <div id="navbar" class="collapse navbar-collapse">
@@ -42,7 +42,7 @@
                 {% if is_granted('ROLE_USER') %}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Witaj Marek <span class="caret"></span></a>
+                       aria-expanded="false">Witaj <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path('user_profile') }}">Profil</a></li>
                         <li role="separator" class="divider"></li>

@@ -18,6 +18,7 @@ if (!defined('ROOT_DIR')) {
 }
 
 $env = getenv('APP_ENV');
+
 $env = in_array($env, ['local', 'prod', 'beta', 'tests']) ? $env : 'local';
 
 ErrorHandler::register();
@@ -44,7 +45,7 @@ $app['security.role_hierarchy'] = [
     'ROLE_USER' => ['ROLE_GUEST'],
 ];
 
-$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+$app->register(new Silex\Provider\SecurityServiceProvider(), [
     'security.firewalls' => [
         'admin' => $app['config']['security']['admin'],
         'user' => [
@@ -57,7 +58,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
             })
         ],
     ]
-));
+]);
 
 $app->register(new Silex\Provider\DoctrineServiceProvider(), $app['config']['database']);
 
