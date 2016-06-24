@@ -1,0 +1,39 @@
+debug: false
+
+config:
+    database:
+        db.options:
+            dbname:
+            user:
+            password:
+            host: localhost
+            driver: pdo_mysql
+            charset: utf8
+
+    security:
+        admin:
+            pattern: ^/admin/
+            form:
+                login_path: /auth/login-admin
+                check_path: /admin/login_check
+                always_use_default_target_path: true
+                default_target_path: /admin/
+            logout:
+                logout_path: /admin/logout
+                invalidate_session: true
+            users:
+                admin:
+                    - ROLE_ADMIN,
+                    - 5FZ2Z8QIkA7UTZ4BYkoC+GsReLf569mSKDsfods6LYQ8t+a8EW9oaircfMpmaLbPBh4FOBiiFyLfuZmTSUwzZg==
+
+        user:
+            pattern: ^.*$
+            anonymous: true
+            form:
+                login_path: /auth/login-user
+                check_path: /user/login_check
+                always_use_default_target_path: true
+                default_target_path: /user/
+            logout:
+                logout_path: /user/logout
+                invalidate_session: true

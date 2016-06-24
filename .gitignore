@@ -1,2 +1,6 @@
 vendor
 composer.lock
+.idea/
+atlassian-ide-plugin.xml
+cache/*
+config/conofig_local.yml

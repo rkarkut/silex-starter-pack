@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Local Moto</title>
+
+    <link rel="stylesheet" href="/site/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/site/css/bootstrap-theme.min.css" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/site/css/style.css"/>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Local Moto</a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse">
+
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Fraza...">
+                </div>
+                <button type="submit" class="btn btn-default">Szukaj</button>
+            </form>
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if is_granted('ROLE_USER') %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Witaj Marek <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('user_profile') }}">Profil</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/user/logout">Wyloguj</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                    <li><a href="{{ path('user_login') }}">Logowanie</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <!-- /.nav-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>

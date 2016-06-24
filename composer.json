@@ -11,7 +11,10 @@
         "symfony/config": "^3.0",
         "symfony/yaml": "~2.1",
         "igorw/config-service-provider": "^1.2",
-        "symfony/security": "^3.0"
+        "symfony/security": "^3.0",
+        "silex/web-profiler": "^1.0",
+        "sorien/silex-dbal-profiler": "^1.1",
+        "robmorgan/phinx": "^0.5.3"
     },
 
     "autoload": {

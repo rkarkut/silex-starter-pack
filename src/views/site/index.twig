@@ -1,0 +1,73 @@
+{% include '/site/partials/_header.twig' %}
+
+<div class="container">
+
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="slider">
+            <img src="/site/imgs/slider.png" alt=""/>
+
+            <div class="text">
+                <p>SPRZEDAWAJ STWOJE<BR/> PRODUKTY ZE SPECJALNĄ <BR/> ZNIŻKĄ <span>20%</span></p>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-9">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+            </p>
+            <div class="row">
+
+                {% for post in posts.getObjects() %}
+
+                    <div class="col-xs-6 col-lg-4">
+                        <div class="post">
+                            <img class="post-image" src="/site/imgs/foto1.jpg" alt="">
+                            <h4><a href="">{{ post.getTitle() }}</a></h4>
+                            <hr>
+                            <div class="description">
+                            <p>Cena: {{ post.getGrossPrice() }} zł</p>
+                            <p>Region: Pomorskie</p>
+                            </div>
+
+                            <div style="text-align: center">
+                            <a class="btn btn-success btn-sm" href="#" role="button">Zobacz »</a></div>
+
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>Region</th>
+                </tr>
+                <tr>
+                    <td>Pomorskie</td>
+                </tr>
+                <tr>
+                    <td>Warmińsko-Mazurskie</td>
+                </tr>
+                <tr>
+                    <td>Wielkopolskie</td>
+                </tr>
+                <tr>
+                    <td>Mazowieckie</td>
+                </tr>
+                <tr>
+                    <td>Lubuskie</td>
+                </tr>
+                </tr>
+            </table>
+        </div>
+        <!--/.sidebar-offcanvas-->
+    </div>
+    <!--/row-->
+</div>
+
+{% include '/site/partials/_footer.twig' %}

@@ -1,0 +1,58 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html,
+body {
+    overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+body {
+    padding-top: 70px;
+}
+footer {
+    padding: 30px 0;
+}
+
+.post {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 5px;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    margin-top: 12px;
+}
+
+.post .description {
+    font-size: small;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.post .description p {
+    margin: 0;
+    padding: 0;
+}
+
+.slider img {
+    float :left;
+    width: 50%;
+}
+
+.slider .text {
+    float: right;
+    width: 50%;
+}
+
+.slider .text p {
+    padding: 30px 0 0 0;
+    text-align: center;
+    font-size: 40px;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.slider .text p span {
+    color: red;
+}

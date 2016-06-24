@@ -1,0 +1,42 @@
+{% include '/site/partials/_header.twig' %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Logowanie</h3>
+                </div>
+                <div class="panel-body">
+
+                    {{ error }}
+                    <form class="form-signin" action="{{ path('user_login_check') }}" method="POST">
+                        <label for="inputEmail" class="sr-only">Email</label>
+                        <input name="_username" value="{{ last_username }}" type="email" id="inputEmail" class="form-control" placeholder="Email" required="required" autofocus="autofocus">
+                        <label for="inputPassword" class="sr-only">Hasło</label>
+                        <input name="_password" type="password" id="inputPassword" class="form-control" placeholder="Hasło" required="required">
+                        {#<div class="checkbox">#}
+                            {#<label>#}
+                                {#<input type="checkbox" value="remember-me"> Remember me#}
+                            {#</label>#}
+                        {#</div>#}
+                        <hr />
+                        <div style="text-align: center">
+                        <button class="btn btn-sm btn-success" type="submit">Zaloguj</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+
+</div>
+
+{% include '/site/partials/_footer.twig' %}
