@@ -3,4 +3,5 @@ composer.lock
 .idea/
 atlassian-ide-plugin.xml
 cache/*
-config/conofig_local.yml
+logs/*
+config/config_local.yml
