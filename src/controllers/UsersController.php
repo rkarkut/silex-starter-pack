@@ -1,9 +1,7 @@
 <?php
-
 namespace Ex\Controllers;
 
 use Ex\Core\ExApplication;
-use Ex\Domain\Users\UsersService;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -21,7 +19,6 @@ class UsersController
         if (!$app['security.authorization_checker']->isGranted('ROLE_USER')) {
             $app->abort('405', 'Nieprawidłowy adres url.');
         }
-
         return $app->render('site/users/index.twig');
     }
 

@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: rkarkut
- * Date: 26/04/16
- * Time: 20:58
- */
-
 namespace Ex\Domain\Users;
-
 
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -17,16 +9,15 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
- * UserProvider
+ * Class UserProvider
+ * @package Ex\Domain\Users
  */
 class UserProvider implements UserProviderInterface
 {
     private $db;
 
     /**
-     * UserProvider constructor.
-     *
-     * @param $db
+     * @param Connection $db
      */
     public function __construct(Connection $db)
     {
@@ -40,7 +31,6 @@ class UserProvider implements UserProviderInterface
     public function loadUserByUsername($username)
     {
         $stmt = $this->db->executeQuery('SELECT * FROM users WHERE email = ?', [strtolower($username)]);
-
         $user = $stmt->fetch();
 
         if (!$user) {

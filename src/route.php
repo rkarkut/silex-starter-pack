@@ -20,7 +20,7 @@ $app->get('/',  'index.controller:home')->bind('homepage');
 $app->get('/encode-password',  'index.controller:encodePassword');
 
 /** admin **/
-$app->get('/admin/', 'admin.controller:index');
+$app->get('/_admin/', 'admin.controller:index');
 $app->get('/auth/login-admin', 'admin.controller:login');
 
 /** user **/

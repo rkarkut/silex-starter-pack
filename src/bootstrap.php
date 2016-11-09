@@ -35,7 +35,7 @@ $app->register(new Igorw\Silex\ConfigServiceProvider(ROOT_DIR . '/config/config_
 ExceptionHandler::register($app['debug']);
 
 $app['security.access_rules'] = [
-    ['^/admin', 'ROLE_ADMIN'],
+    ['^/_admin', 'ROLE_ADMIN'],
     ['^/user', 'ROLE_USER'],
 ];
 
@@ -53,7 +53,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), [
             'anonymous' => $app['config']['security']['user']['anonymous'],
             'form' => $app['config']['security']['user']['form'],
             'logout' => $app['config']['security']['user']['logout'],
-            'users' => $app->share(function () use ($app) {
+            'users' => $app->share(function() use ($app) {
                 return new UserProvider($app['db']);
             })
         ],
@@ -82,7 +82,7 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), [
     'locale_fallbacks' => ['en'],
 ]);
 
-$app['translator'] = $app->share($app->extend('translator', function ($translator, $app) {
+$app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
 
     $translator->addResource('yaml', ROOT_DIR . '/locales/en.yml', 'en');
@@ -101,24 +101,22 @@ if ($app['debug']) {
     $app->register(new Sorien\Provider\DoctrineProfilerServiceProvider());
 }
 
-$app->error(function (\Exception $e, $code) use ($app) {
+if (!$app['debug']) {
 
-    if ($app['debug']) {
-        return;
-    }
+    $app->error(function(\Exception $e, $code) use ($app) {
+        $app['monolog']->addDebug($e->getMessage());
 
-    $app['monolog']->addDebug($e->getMessage());
+        switch ($code) {
+            case 404:
+                $message = 'The requested page could not be found.';
+                break;
+            default:
+                $message = 'We are sorry, but something went terribly wrong.';
+        }
 
-    switch ($code) {
-        case 404:
-            $message = 'The requested page could not be found.';
-            break;
-        default:
-            $message = 'We are sorry, but something went terribly wrong.';
-    }
-
-    return new Response($message);
-});
+        return new Response($message);
+    });
+}
 
 require 'route.php';
 

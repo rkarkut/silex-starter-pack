@@ -1,9 +1,9 @@
 <?php
-
 namespace Ex\Controllers\Admin;
 
 use Ex\Core\ExApplication;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class AdminController
@@ -13,7 +13,7 @@ class AdminController
 {
     /**
      * @param ExApplication $app
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function index(ExApplication $app)
     {
@@ -24,7 +24,7 @@ class AdminController
      * @param ExApplication $app
      * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function login(ExApplication $app, Request $request)
     {

@@ -40,7 +40,7 @@ class CreateUserTable extends AbstractMigration
             ->addColumn('last_login_date', 'timestamp')
             ->addColumn('last_login_ip', 'string', 64)
             ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addColumn('updated_at', 'timestamp')
+            ->addColumn('updated_at', 'datetime')
             ->create();
     }
 }

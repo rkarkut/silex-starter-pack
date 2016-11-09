@@ -1,4 +1,5 @@
 debug: false
+display_error: false
 
 config:
     database:
@@ -12,14 +13,14 @@ config:
 
     security:
         admin:
-            pattern: ^/admin/
+            pattern: ^/_admin/
             form:
                 login_path: /auth/login-admin
-                check_path: /admin/login_check
+                check_path: /_admin/login_check
                 always_use_default_target_path: true
-                default_target_path: /admin/
+                default_target_path: /_admin/
             logout:
-                logout_path: /admin/logout
+                logout_path: /_admin/logout
                 invalidate_session: true
             users:
                 admin:
