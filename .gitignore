@@ -5,3 +5,4 @@ atlassian-ide-plugin.xml
 cache/*
 logs/*
 config/config_local.yml
+phinx.yml
