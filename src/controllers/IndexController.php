@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\User\User;
  * @package Ex\Controllers
  */
 class IndexController
-{
+{``
     /**
      * @param ExApplication $app
      * @return Response

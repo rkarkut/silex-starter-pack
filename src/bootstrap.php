@@ -18,7 +18,6 @@ if (!defined('ROOT_DIR')) {
 }
 
 $env = getenv('APP_ENV');
-
 $env = in_array($env, ['local', 'prod', 'beta', 'tests']) ? $env : 'local';
 
 ErrorHandler::register();
@@ -33,6 +32,7 @@ $app->register(new Silex\Provider\HttpFragmentServiceProvider());
 $app->register(new Igorw\Silex\ConfigServiceProvider(ROOT_DIR . '/config/config_' . $env . '.yml'));
 
 ExceptionHandler::register($app['debug']);
+ini_set('display_errors', false);
 
 $app['security.access_rules'] = [
     ['^/_admin', 'ROLE_ADMIN'],
@@ -101,23 +101,18 @@ if ($app['debug']) {
     $app->register(new Sorien\Provider\DoctrineProfilerServiceProvider());
 }
 
-if (!$app['debug']) {
+$app->error(function(\Exception $e, $code) use ($app) {
+    $app['monolog']->addDebug($e->getMessage());
 
-    $app->error(function(\Exception $e, $code) use ($app) {
-        $app['monolog']->addDebug($e->getMessage());
-
-        switch ($code) {
-            case 404:
-                $message = 'The requested page could not be found.';
-                break;
-            default:
-                $message = 'We are sorry, but something went terribly wrong.';
-        }
-
-        return new Response($message);
-    });
-}
+    switch ($code) {
+        case 404:
+            $message = 'The requested page could not be found.';
+            break;
+        default:
+            $message = 'We are sorry, but something went terribly wrong.';
+    }
+    return new Response($message);
+});
 
 require 'route.php';
-
 return $app;
