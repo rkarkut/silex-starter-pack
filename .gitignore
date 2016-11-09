@@ -3,6 +3,6 @@ composer.lock
 .idea/
 atlassian-ide-plugin.xml
 cache/*
-logs/*
+logs/local.log
 config/config_local.yml
 phinx.yml
