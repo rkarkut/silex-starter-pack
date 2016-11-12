@@ -31,16 +31,25 @@ class CreateUserTable extends AbstractMigration
     public function up()
     {
         $table = $this->table('users');
-
         $table
-            ->addColumn('email', 'string', 1024)
+            ->addColumn('email', 'string', ['limit' => 255])
             ->addColumn('password', 'text')
             ->addColumn('is_active', 'boolean')
-            ->addColumn('roles', 'string', 128)
-            ->addColumn('last_login_date', 'timestamp')
-            ->addColumn('last_login_ip', 'string', 64)
+            ->addColumn('roles', 'string', ['limit' => 255])
+            ->addColumn('ip_address', 'string', ['limit' => 64])
+            ->addColumn('last_login_at', 'timestamp', ['null' => true])
             ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addColumn('updated_at', 'datetime')
+            ->addColumn('updated_at', 'timestamp', ['null' => true])
+            ->addIndex(['email'], ['unique' => true])
             ->create();
     }
+
+    /**
+     *
+     */
+    public function down()
+    {
+        $this->execute('DROP TABLE users;');
+    }
+    
 }

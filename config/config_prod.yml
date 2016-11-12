@@ -10,6 +10,7 @@ config:
             host: localhost
             driver: pdo_mysql
             charset: utf8
+            port: 3306
 
     security:
         admin:
@@ -25,7 +26,7 @@ config:
             users:
                 admin:
                     - ROLE_ADMIN,
-                    - 5FZ2Z8QIkA7UTZ4BYkoC+GsReLf569mSKDsfods6LYQ8t+a8EW9oaircfMpmaLbPBh4FOBiiFyLfuZmTSUwzZg==
+                    - Na3zJVtxtt/UiNM3+un10D72OlRVMSWT5d7jIKWnLq0TjnYKQRX66QNsF50xYOPmq/mFnCPh13kUg2MXl5/FPQ==
 
         user:
             pattern: ^.*$

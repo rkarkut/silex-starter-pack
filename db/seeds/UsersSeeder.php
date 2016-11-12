@@ -20,10 +20,10 @@ class UsersSeeder extends AbstractSeed
             [
                 'email' => 'test@site.com',
                 'password' => 'stHGdg4MhYOm/OVTWjpMJievIvJqafsQQ3WpWlUNDT6WfHupVWjBQaxdppMQkdCmYSXl6QQQXVYLGL/MDZi5Zw==',
-                'roles' => 'ROLE_USER',
                 'is_active' => 1,
-                'last_login_date' => date('Y-m-d H:i:s'),
-                'last_login_ip' => '127.0.0.1',
+                'roles' => 'ROLE_USER',
+                'ip_address' => '127.0.0.1',
+                'last_login_at' => date('Y-m-d H:i:s'),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]
