@@ -11,31 +11,3 @@ config:
             driver: pdo_mysql
             charset: utf8
             port: 3306
-
-    security:
-        admin:
-            pattern: ^/_admin/
-            form:
-                login_path: /auth/login-admin
-                check_path: /_admin/login_check
-                always_use_default_target_path: true
-                default_target_path: /_admin/
-            logout:
-                logout_path: /_admin/logout
-                invalidate_session: true
-            users:
-                admin:
-                    - ROLE_ADMIN,
-                    - Na3zJVtxtt/UiNM3+un10D72OlRVMSWT5d7jIKWnLq0TjnYKQRX66QNsF50xYOPmq/mFnCPh13kUg2MXl5/FPQ==
-
-        user:
-            pattern: ^.*$
-            anonymous: true
-            form:
-                login_path: /auth/login-user
-                check_path: /user/login_check
-                always_use_default_target_path: true
-                default_target_path: /user/
-            logout:
-                logout_path: /user/logout
-                invalidate_session: true

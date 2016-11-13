@@ -29,6 +29,7 @@ $app->register(new Silex\Provider\ValidatorServiceProvider());
 $app->register(new Silex\Provider\ServiceControllerServiceProvider());
 $app->register(new Silex\Provider\HttpFragmentServiceProvider());
 
+$app->register(new Igorw\Silex\ConfigServiceProvider(ROOT_DIR . '/config/config.yml'));
 $app->register(new Igorw\Silex\ConfigServiceProvider(ROOT_DIR . '/config/config_' . $env . '.yml'));
 
 ExceptionHandler::register($app['debug']);
