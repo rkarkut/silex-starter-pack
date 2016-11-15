@@ -2,7 +2,7 @@ vendor
 composer.lock
 .idea/
 atlassian-ide-plugin.xml
-cache/*
-logs/local.log
+storage/logs/*
+storage/cache/*
 config/config_local.yml
 phinx.yml

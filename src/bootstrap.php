@@ -65,7 +65,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), $app['config']['dat
 
 $app->register(new Silex\Provider\MonologServiceProvider(), [
     'monolog.name' => 'silex',
-    'monolog.logfile' => ROOT_DIR . '/logs/' . $env . '.log',
+    'monolog.logfile' => ROOT_DIR . '/storage/logs/' . $env . '.log',
     'monolog.level' => Monolog\Logger::ERROR
 ]);
 
@@ -95,7 +95,7 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 
 if ($app['debug']) {
     $app->register(new WebProfilerServiceProvider(), [
-        'profiler.cache_dir' => ROOT_DIR . '/cache/profiler',
+        'profiler.cache_dir' => ROOT_DIR . '/storage/cache/profiler',
         'profiler.mount_prefix' => '/_profiler', // this is the default
     ]);
 
