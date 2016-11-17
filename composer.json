@@ -17,6 +17,10 @@
         "robmorgan/phinx": "^0.5.3"
     },
 
+    "require-dev": {
+        "phpunit/phpunit": "5.*"
+    },
+
     "autoload": {
         "psr-4": {
             "Ex\\": "src"
